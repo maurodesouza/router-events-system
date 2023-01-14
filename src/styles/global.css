@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-zinc-900 text-gray-300
+}
+
+#__next {
+  @apply p-10 min-h-screen flex flex-col
+}
