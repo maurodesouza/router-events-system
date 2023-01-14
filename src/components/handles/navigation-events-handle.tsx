@@ -18,7 +18,12 @@ const NavigationEventsHandle = () => {
   const handleAddQueries = (event: CustomEvent<HandleAddQueriesEventPayload[]>) => {
     const queries = getQueries()
 
-    event.detail.forEach(item => queries.append(item.key, item.value))
+    event.detail.forEach(item => {
+      const alreadyExist = queries.has(item.key)
+      const method = alreadyExist ? 'set' : 'append'
+
+      queries[method](item.key, item.value)
+    })
 
     handleReplace(queries)
   }
