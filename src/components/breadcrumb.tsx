@@ -33,7 +33,7 @@ const Breadcrumb = ({ icon: Icon, label }: BreadcrumbProps) => {
       {hasPaths && (
         <div className="flex items-center gap-4">
           <Link to={Routes.HOME}>
-            <a>Home</a>
+            Home
           </Link>
 
           {paths.map((path, index) => {
@@ -43,7 +43,7 @@ const Breadcrumb = ({ icon: Icon, label }: BreadcrumbProps) => {
               <React.Fragment key={path}>
                 <CaretRight />
 
-                {!isLast && (<Link to={getFullPath(index)}><a>{path}</a></Link>)}
+                {!isLast && (<Link to={getFullPath(index)}>{path}</Link>)}
 
                 {isLast && (<span>{path}</span>)}
               </React.Fragment>
