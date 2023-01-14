@@ -6,6 +6,6 @@ body {
   @apply bg-zinc-900 text-gray-300
 }
 
-#__next {
+#root {
   @apply p-10 min-h-screen flex flex-col
 }
