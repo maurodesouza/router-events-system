@@ -2,7 +2,9 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { CaretRight } from 'phosphor-react'
+
 import { PhosphorIcon, Routes } from 'types'
+import { capitalize } from 'utils'
 
 type BreadcrumbProps = {
   icon: PhosphorIcon
@@ -38,14 +40,15 @@ const Breadcrumb = ({ icon: Icon, label }: BreadcrumbProps) => {
 
           {paths.map((path, index) => {
             const isLast = index === (paths.length - 1)
+            const formatedPath = capitalize(path)
 
             return (
               <React.Fragment key={path}>
                 <CaretRight />
 
-                {!isLast && (<Link to={getFullPath(index)}>{path}</Link>)}
+                {!isLast && (<Link to={getFullPath(index)}>{formatedPath}</Link>)}
 
-                {isLast && (<span>{path}</span>)}
+                {isLast && (<span>{formatedPath}</span>)}
               </React.Fragment>
             )
           })}
